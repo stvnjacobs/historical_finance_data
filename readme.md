@@ -67,3 +67,4 @@ Date,Open,High,Low,Close,Volume,Adj Close
 ## Taking it further
 
 -  more command line arguments for refining output
+-  outputting chart in svg and image formats
