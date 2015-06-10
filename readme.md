@@ -1,32 +1,34 @@
 ## Why?
 
-Need historical stock price information, with the added bonus of volume, daily highs and lows.
+Needed historical stock price information, with the added bonus of volume, daily highs and lows.
 
 ## How does it work?
 
-```historical_finance_data.py``` will retreive historical stock information and save the information to a ```.csv``` file.  Information comes from yahoo finance, and requests are limited to the information in their database.
+```historical_finance_data.py``` will retreive historical stock information and save the information to a ```.csv``` file.  Information comes from Yahoo Finance, and requests are limited to the information in their database.
 
 It currently pulls daily data.  For weekly, monthly, yearly, or only dividends, see ```payload {...}``` comments for these parameters.
 
 ### Dependencies
 
-- python (currently running on [Python 2.7.6](https://docs.python.org/2/))
-- requests ([installation docs](http://docs.python-requests.org/en/latest/user/install/)) 
+- Python (currently running on [Python 2.7.6](https://docs.python.org/2/))
+- [Virtualenv](https://virtualenv.pypa.io/en/latest/) is recommended
 
-### Running the program
-
-Clone the repository.
+### Getting Started
 
 ```
 git clone https://github.com/stvnjacobs/historical_finance_data.git
-```
-
-Move into the newly cloned directory.
-
-```
 cd historical_finance_data
 ```
 
+Install the necessary dependencies using pip.  (Again, Virtualenv is recommended to isolate dependencies)
+
+```
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Running The Program
 Run the command with a valid ticker symbol.
 
 ```
@@ -66,5 +68,5 @@ Date,Open,High,Low,Close,Volume,Adj Close
 
 ## Taking it further
 
--  more command line arguments for refining output
+-  more command line arguments for refining output (interval, dividends, etc.)
 -  outputting chart in svg and image formats
