@@ -19,24 +19,42 @@ def create_csv(ticker, response):
     f.write(response)
     f.close
 
+def convert_interval(interval_string):
+    if interval_string == 'weekly' or interval_string == 'w':
+        return 'w'
+    elif interval_string == 'monthly' or interval_string == 'm':
+        return 'm'
+    elif interval_string == 'dividends' or interval_string == 'v':
+        return 'v'
+    else:
+        return 'd'
+
 @click.command()
 @click.option('--ticker', prompt='Ticker symbol',
               help='Ticker symbol to look up.')
-def run(ticker):
+@click.option('--interval', default='daily', prompt='Inteval',
+              type=click.Choice(['daily', 'weekly', 'monthly', 'dividends']),
+              help='Available options are "daily" or "d", "weekly" \
+              or "w", "monthly" or "m", and lastly "dividends" or "v"')
+
+def run(ticker, interval):
     """Simple program that outputs a csv of historical ticker data"""
+
+    interval = convert_interval(interval)
+
     payload = {
-        's': ticker, # ticker symbol
-        'c': '',     # start year
-        'a': '',     # start month - 1
-        'b': '',     # start day
-        'f': '',     # to year
-        'd': '',     # to month - 1
-        'e': '',     # to day
-        'g': 'd'     # interval
-	                # d = daily
-                        # w = weekly
-                        # m = monthly
-                        # v = dividends only
+        's': ticker,      # ticker symbol
+        'c': '',          # start year
+        'a': '',          # start month - 1
+        'b': '',          # start day
+        'f': '',          # to year
+        'd': '',          # to month - 1
+        'e': '',          # to day
+        'g': interval     # interval
+	                          # d = daily
+                              # w = weekly
+                              # m = monthly
+                              # v = dividends only
     }
 
     r = requests.get('http://ichart.yahoo.com/table.csv', params=payload)
