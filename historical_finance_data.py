@@ -31,7 +31,7 @@ def convert_interval(interval_string):
 
 @click.command()
 @click.option('--interval', default='daily', prompt='Inteval',
-              type=click.Choice(['daily', 'weekly', 'monthly', 'dividends']),
+              type=click.Choice(['d', 'daily', 'w', 'weekly', 'm', 'monthly', 'v', 'dividends']),
               help='Available options are "daily" or "d", "weekly" \
               or "w", "monthly" or "m", and lastly "dividends" or "v"')
 @click.argument('ticker')
