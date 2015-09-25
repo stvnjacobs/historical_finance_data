@@ -15,24 +15,24 @@ It currently pulls daily data.  For weekly, monthly, yearly, or only dividends, 
 
 ### Getting Started
 
-```
-git clone https://github.com/stvnjacobs/historical_finance_data.git
-cd historical_finance_data
+```bash
+$ git clone https://github.com/stvnjacobs/historical_finance_data.git
+$ cd historical_finance_data
 ```
 
 Install the necessary dependencies using pip.  (Again, Virtualenv is recommended to isolate dependencies)
 
-```
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
+```bash
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 ```
 
 ### Running The Program
 Run the command with a valid ticker symbol.
 
-```
-python historical_finance_data.py VTI
+```bash
+$ python historical_finance_data.py VTI
 ```
 
 Newly created ```.csv``` files will be placed in ```data``` directory
@@ -43,13 +43,12 @@ historical_finance_data
 │   └── VTI.csv
 ├── historical_finance_data.py
 └── readme.md
-
 ```
 
 Here is what the first 10 lines of the ```VTI.csv``` we just created (on April 29th, 2014) looks like.
 
-```
-head -10 data/VTI.csv
+```bash
+$ head -10 data/VTI.csv
 ```
 
 ```
@@ -67,5 +66,7 @@ Date,Open,High,Low,Close,Volume,Adj Close
 
 ## Taking it further
 
--  more command line arguments for refining output (interval, dividends, etc.)
--  outputting chart in svg and image formats
+-  Add more command line arguments for refining output:
+	- [x] Intervals & Dividends
+	- [ ] Date ranges and deltas
+-  Option to create chart
