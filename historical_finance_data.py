@@ -30,7 +30,7 @@ def convert_interval(interval_string):
         return 'd'
 
 @click.command()
-@click.option('--interval', default='daily', prompt='Inteval',
+@click.option('-i', '--interval', default='daily', prompt='Inteval',
               type=click.Choice(['d', 'daily', 'w', 'weekly', 'm', 'monthly', 'v', 'dividends']),
               help='Available options are "daily" or "d", "weekly" \
               or "w", "monthly" or "m", and lastly "dividends" or "v"')
