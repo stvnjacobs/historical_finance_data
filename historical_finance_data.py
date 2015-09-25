@@ -30,12 +30,11 @@ def convert_interval(interval_string):
         return 'd'
 
 @click.command()
-@click.option('--ticker', prompt='Ticker symbol',
-              help='Ticker symbol to look up.')
 @click.option('--interval', default='daily', prompt='Inteval',
               type=click.Choice(['daily', 'weekly', 'monthly', 'dividends']),
               help='Available options are "daily" or "d", "weekly" \
               or "w", "monthly" or "m", and lastly "dividends" or "v"')
+@click.argument('ticker')
 
 def run(ticker, interval):
     """Simple program that outputs a csv of historical ticker data"""
