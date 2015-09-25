@@ -41,7 +41,6 @@ Newly created ```.csv``` files will be placed in ```data``` directory
 historical_finance_data
 ├── data
 │   └── VTI.csv
-├── .gitignore
 ├── historical_finance_data.py
 └── readme.md
 
