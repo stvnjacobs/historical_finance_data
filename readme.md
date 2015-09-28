@@ -35,6 +35,23 @@ Run the command with a valid ticker symbol.
 $ python historical_finance_data.py VTI
 ```
 
+Currently there are options for intervals of data which can be found by running the ```--help``` argument.
+
+```bash
+$ python historical_finance_data.py --help
+
+Usage: historical_finance_data.py [OPTIONS] TICKER
+
+  Simple program that outputs a csv of historical ticker data
+
+Options:
+  -i, --interval [d|daily|w|weekly|m|monthly|v|dividends]
+                                  Available options are "daily" or "d",
+                                  "weekly" or "w", "monthly" or
+                                  "m", and lastly "dividends" or "v"
+  --help                          Show this message and exit.
+```
+
 Newly created ```.csv``` files will be placed in ```data``` directory
 
 ```
