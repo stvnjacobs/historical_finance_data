@@ -1,17 +1,15 @@
 ## Why?
 
-Needed historical stock price information, with the added bonus of volume, daily highs and lows.
+I occasionally need historical stock price information that can easily be parsed for charting and analysis.
 
 ## How does it work?
 
-```historical_finance_data.py``` will retreive historical stock information and save the information to a ```.csv``` file.  Information comes from Yahoo Finance, and requests are limited to the information in their database.
-
-It currently pulls daily data.  For weekly, monthly, yearly, or only dividends, see ```payload {...}``` comments for these parameters.
+```historical_finance_data.py``` will retrieve historical stock information and save the information to a ```.csv``` file.  Information comes from Yahoo Finance, and requests are limited to the information in their database.
 
 ### Dependencies
 
-- Python (currently running on [Python 2.7.6](https://docs.python.org/2/))
-- [Virtualenv](https://virtualenv.pypa.io/en/latest/) is recommended
+- Python (currently running on [Python 2.7](https://docs.python.org/2/))
+- [Virtualenv](https://virtualenv.pypa.io/en/latest/) is recommended.  If you would like some more information on virtualenv and it's value, I recommend reading [The Hitchhikers Guide to Python section on Virtual Environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/).
 
 ### Getting Started
 
@@ -29,30 +27,23 @@ $ pip install -r requirements.txt
 ```
 
 ### Running The Program
-Run the command with a valid ticker symbol.
+
+The program is run from the command line, and you must provide it with a valid ticker symbol.
 
 ```bash
 $ python historical_finance_data.py VTI
 ```
 
-Currently there are options for intervals of data which can be found by running the ```--help``` argument.
+If you do not set an interval, you will be prompted to enter one.  The script currently pulls daily data by default.  For weekly, monthly, yearly, or only dividend data, you have the following options.  
 
-```bash
-$ python historical_finance_data.py --help
+_note:_ These can all be set from the start as an attribute with the ```-i``` or ```--interval``` flag when you first input the command.
 
-Usage: historical_finance_data.py [OPTIONS] TICKER
+- ```d``` or ```daily``` for daily data.
+- ```w``` or ```weekly``` for weekly data.
+- ```m``` or ```monthly``` for monthly data.
+- ```v``` or ```dividends``` will return all dividend payouts.
 
-  Simple program that outputs a csv of historical ticker data
-
-Options:
-  -i, --interval [d|daily|w|weekly|m|monthly|v|dividends]
-                                  Available options are "daily" or "d",
-                                  "weekly" or "w", "monthly" or
-                                  "m", and lastly "dividends" or "v"
-  --help                          Show this message and exit.
-```
-
-Newly created ```.csv``` files will be placed in ```data``` directory
+The newly created ```.csv``` file will be placed in a ```data``` directory.  If you were to get information for VTI, the Vanguard Total Stock Market ETF, the resulting file tree of the directory will look something like this:
 
 ```
 historical_finance_data
@@ -66,9 +57,7 @@ Here is what the first 10 lines of the ```VTI.csv``` we just created (on April 2
 
 ```bash
 $ head -10 data/VTI.csv
-```
 
-```
 Date,Open,High,Low,Close,Volume,Adj Close
 2014-04-28,96.90,97.22,95.65,96.69,2046000,96.69
 2014-04-25,97.19,97.25,96.34,96.55,1927700,96.55
