@@ -4,12 +4,12 @@ I occasionally need historical stock price information that can easily be parsed
 
 ## How does it work?
 
-```historical_finance_data.py``` will retrieve historical stock information and save the information to a ```.csv``` file.  Information comes from Yahoo Finance, and requests are limited to the information in their database.
+```historical_finance_data.py``` will retrieve historical stock information and save it to a ```.csv``` file.  Information comes from Yahoo Finance, and requests are limited to the information in their database.
 
 ### Dependencies
 
 - Python (currently running on [Python 2.7](https://docs.python.org/2/))
-- [Virtualenv](https://virtualenv.pypa.io/en/latest/) is recommended.  If you would like some more information on virtualenv and it's value, I recommend reading [The Hitchhikers Guide to Python section on Virtual Environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/).
+- [Virtualenv](https://virtualenv.pypa.io/en/latest/) is recommended.  I recommend reading [The Hitchhikers Guide to Python section on Virtual Environments](http://docs.python-guide.org/en/latest/dev/virtualenvs/) if you are not familiar with Python virtual environments.
 
 ### Getting Started
 
@@ -21,8 +21,8 @@ $ cd historical_finance_data
 Install the necessary dependencies using pip.  (Again, Virtualenv is recommended to isolate dependencies)
 
 ```bash
-$ virtualenv venv
-$ source venv/bin/activate
+$ virtualenv env
+$ source env/bin/activate
 $ pip install -r requirements.txt
 ```
 
@@ -30,11 +30,13 @@ $ pip install -r requirements.txt
 
 The program is run from the command line, and you must provide it with a valid ticker symbol.
 
+_note_: These commands are run from the folder which contains ```historical_finance_data.py```.  The ability to run it from anywhere, or infomration on how to do so, will soon be added.
+
 ```bash
 $ python historical_finance_data.py VTI
 ```
 
-If you do not set an interval, you will be prompted to enter one.  The script currently pulls daily data by default.  For weekly, monthly, yearly, or only dividend data, you have the following options.  
+If you do not set an interval, you will be prompted to enter one.  The script currently pulls daily data by default.  You also have the option of weekly, monthly, yearly, or only dividend data.  
 
 _note:_ These can all be set from the start as an attribute with the ```-i``` or ```--interval``` flag when you first input the command.
 
@@ -75,4 +77,5 @@ Date,Open,High,Low,Close,Volume,Adj Close
 -  Add more command line arguments for refining output:
 	- [x] Intervals & Dividends
 	- [ ] Date ranges and deltas
+-  Setuptools integration ([Instructions](http://click.pocoo.org/5/setuptools/#setuptools-integration))
 -  Option to create chart
